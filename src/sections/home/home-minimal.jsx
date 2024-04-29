@@ -2,7 +2,6 @@ import { m } from 'framer-motion';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import { Stack, Divider } from '@mui/material';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 

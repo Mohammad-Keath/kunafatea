@@ -1,7 +1,7 @@
 import Stack from '@mui/material/Stack';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { useTheme } from '@mui/material/styles';
+// import { useTheme } from '@mui/material/styles';
 import Badge, { badgeClasses } from '@mui/material/Badge';
 import { Button, Divider, Typography } from '@mui/material';
 
@@ -17,7 +17,7 @@ import { navConfig } from './config-navigation';
 // ----------------------------------------------------------------------
 
 export default function Header() {
-  const theme = useTheme();
+  // const theme = useTheme();
 
   const mdUp = useResponsive('up', 'md');
 

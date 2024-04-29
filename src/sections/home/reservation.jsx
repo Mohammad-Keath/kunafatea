@@ -1,6 +1,6 @@
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
-import { useMemo, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -59,14 +59,14 @@ export default function ReservationForm({ currentUser }) {
 
   const {
     reset,
-    watch,
-    control,
-    setValue,
+    // watch,
+    // control,
+    // setValue,
     handleSubmit,
     formState: { isSubmitting },
   } = methods;
 
-  const values = watch();
+  // const values = watch();
 
   const onSubmit = handleSubmit(async (data) => {
     try {
@@ -80,20 +80,20 @@ export default function ReservationForm({ currentUser }) {
     }
   });
 
-  const handleDrop = useCallback(
-    (acceptedFiles) => {
-      const file = acceptedFiles[0];
+  // const handleDrop = useCallback(
+  //   (acceptedFiles) => {
+  //     const file = acceptedFiles[0];
 
-      const newFile = Object.assign(file, {
-        preview: URL.createObjectURL(file),
-      });
+  //     const newFile = Object.assign(file, {
+  //       preview: URL.createObjectURL(file),
+  //     });
 
-      if (file) {
-        setValue('avatarUrl', newFile, { shouldValidate: true });
-      }
-    },
-    [setValue]
-  );
+  //     if (file) {
+  //       setValue('avatarUrl', newFile, { shouldValidate: true });
+  //     }
+  //   },
+  //   [setValue]
+  // );
 
   return (
     <FormProvider methods={methods} onSubmit={onSubmit}>

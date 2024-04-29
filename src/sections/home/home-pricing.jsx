@@ -1,12 +1,12 @@
 import { m } from 'framer-motion';
-import { keyframes } from '@emotion/react';
-import { useState, useCallback } from 'react';
+// import { keyframes } from '@emotion/react';
+// import { useState, useCallback } from 'react';
 
 import Stack from '@mui/material/Stack';
 import { alpha } from '@mui/material/styles';
 import { Container, Typography } from '@mui/material';
 
-import { useResponsive } from 'src/hooks/use-responsive';
+// import { useResponsive } from 'src/hooks/use-responsive';
 
 import { varFade, MotionViewport } from 'src/components/animate';
 
@@ -15,13 +15,13 @@ import ReservationForm from './reservation';
 // ----------------------------------------------------------------------
 
 export default function HomePricing() {
-  const mdUp = useResponsive('up', 'md');
+  // const mdUp = useResponsive('up', 'md');
 
-  const [currentTab, setCurrentTab] = useState('Standard');
+  // const [currentTab, setCurrentTab] = useState('Standard');
 
-  const handleChangeTab = useCallback((event, newValue) => {
-    setCurrentTab(newValue);
-  }, []);
+  // const handleChangeTab = useCallback((event, newValue) => {
+  //   setCurrentTab(newValue);
+  // }, []);
 
   const renderDescription = (
     <Stack spacing={3} sx={{ mb: 10, textAlign: 'center' }}>
@@ -49,14 +49,14 @@ export default function HomePricing() {
     </Stack>
   );
 
-  const fadeIn = keyframes`
-  0% {
-    width: 50%;
-  }
-  100% {
-    width: 60%;
-  }
-`;
+//   const fadeIn = keyframes`
+//   0% {
+//     width: 50%;
+//   }
+//   100% {
+//     width: 60%;
+//   }
+// `;
 
   return (
     <>
