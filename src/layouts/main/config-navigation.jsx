@@ -11,11 +11,21 @@ export const navConfig = [
   {
     title: 'MENU',
     // icon: <Iconify width={40} icon="solar:atom-bold-duotone" />,
-    path: paths.components,
+    path: paths.menu,
   },
   {
-    title: 'CONTACT US',
+    title: 'CATERING',
     // icon: <Iconify width={40} icon="solar:atom-bold-duotone" />,
-    path: paths.components,
+    path: paths.catering,
+  },
+  {
+    title: 'NEWS',
+    // icon: <Iconify width={40} icon="solar:atom-bold-duotone" />,
+    path: paths.news,
+  },
+  {
+    title: 'OUR STORY',
+    // icon: <Iconify width={40} icon="solar:atom-bold-duotone" />,
+    path: paths.our_story,
   },
 ];

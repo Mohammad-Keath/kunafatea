@@ -1,9 +1,12 @@
 import Stack from '@mui/material/Stack';
+// import { useTheme } from '@mui/material/styles';
+import Badge from '@mui/material/Badge';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-// import { useTheme } from '@mui/material/styles';
-import Badge, { badgeClasses } from '@mui/material/Badge';
 import { Button, Divider, Typography } from '@mui/material';
+
+import { paths } from 'src/routes/paths';
+import { useRouter } from 'src/routes/hooks';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
@@ -21,6 +24,10 @@ export default function Header() {
 
   const mdUp = useResponsive('up', 'md');
 
+  const router = useRouter();
+
+  const currRoute = window.location.pathname;
+  const homePage = currRoute === '/';
   // const offsetTop = useOffSetTop(HEADER.H_DESKTOP);
 
   return (
@@ -47,7 +54,7 @@ export default function Header() {
       // }}
       >
         <Stack sx={{ mb: { md: 10, sm: 0 } }} width={1}>
-          {mdUp && (
+          {mdUp && homePage && (
             <Stack sx={{ my: 2 }} direction="row" justifyContent="space-around">
               <Stack sx={{ cursor: 'pointer' }} direction="row" columnGap={1}>
                 <Iconify icon="mdi:address-marker" />
@@ -65,7 +72,7 @@ export default function Header() {
               </Stack>
             </Stack>
           )}
-          {mdUp && <Divider />}
+          {mdUp && homePage && <Divider />}
           <Stack
             sx={{ px: { md: 10, xs: 2 }, py: 2 }}
             direction="row"
@@ -73,13 +80,15 @@ export default function Header() {
           >
             {/* <Box sx={{ flexGrow: 1 }} /> */}
             <Badge
-              sx={{
-                // ml: 10,
-                [`& .${badgeClasses.badge}`]: {
-                  top: 8,
-                  right: -16,
-                },
-              }}
+              sx={
+                {
+                  // ml: 10,
+                  // [`& .${badgeClasses.badge}`]: {
+                  // top: -65,
+                  // left: -60,
+                  // },
+                }
+              }
             >
               <Logo />
             </Badge>
@@ -88,12 +97,14 @@ export default function Header() {
             {mdUp && (
               <Stack direction="row" alignItems="flex-start" gap={5} sx={{ mt: 3 }}>
                 <Button
+                  onClick={() => router.push(paths.reservation)}
                   variant="outlined"
                   // color="primary"
                   sx={{
                     height: 40,
-                    width: 140,
-                    fontSize: 14,
+                    // width: 140,
+                    px: 4,
+                    fontSize: 15,
                     fontWeight: 700,
                     borderRadius: 0,
                     border: '2px solid ',
@@ -103,9 +114,9 @@ export default function Header() {
                     },
                   }}
                 >
-                  RESERVATION
+                  MAKE A RESERVATION
                 </Button>
-                <Button
+                {/* <Button
                   variant="outlined"
                   // color="primary"
                   sx={{
@@ -122,7 +133,7 @@ export default function Header() {
                   }}
                 >
                   CATERING
-                </Button>
+                </Button> */}
               </Stack>
             )}
 

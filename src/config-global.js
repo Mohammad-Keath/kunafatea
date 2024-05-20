@@ -1,5 +1,3 @@
-import { paths } from 'src/routes/paths';
-
 // API
 // ----------------------------------------------------------------------
 
@@ -36,4 +34,4 @@ export const SUPABASE_API = {
 export const MAPBOX_API = process.env.REACT_APP_MAPBOX_API;
 
 // ROOT PATH AFTER LOGIN SUCCESSFUL
-export const PATH_AFTER_LOGIN = paths.dashboard.root; // as '/dashboard'
+// export const PATH_AFTER_LOGIN = paths.dashboard.root; // as '/dashboard'

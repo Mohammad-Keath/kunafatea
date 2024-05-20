@@ -3,6 +3,8 @@ import { useScroll } from 'framer-motion';
 import Box from '@mui/material/Box';
 // import { styled } from '@mui/material/styles';
 
+import BackgroundImg from 'src/assets/images/background-1.png';
+
 import ScrollProgress from 'src/components/scroll-progress';
 
 import HomeHero from '../home-hero';
@@ -46,10 +48,20 @@ export default function HomeView() {
         sx={{
           overflow: 'hidden',
           position: 'relative',
+          // bgcolor: 'background.default',
+          backgroundImage: `url(${BackgroundImg})`,
+          backgroundSize: 'cover',
+        }}
+        >
+        <HomeMinimal />
+        </Box>
+      <Box
+        sx={{
+          overflow: 'hidden',
+          position: 'relative',
           bgcolor: 'background.default',
         }}
-      >
-        <HomeMinimal />
+        >
 
         {/* <HomeHugePackElements /> */}
 

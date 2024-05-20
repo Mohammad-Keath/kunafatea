@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import AppBar from '@mui/material/AppBar';
+import { AppBar } from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
 import { useTheme } from '@mui/material/styles';
 
@@ -11,7 +11,6 @@ import { bgBlur } from 'src/theme/css';
 import Scrollbar from 'src/components/scrollbar';
 import { NavSectionHorizontal } from 'src/components/nav-section';
 
-import { HEADER } from '../config-layout';
 import { useNavData } from './config-navigation';
 import HeaderShadow from '../common/header-shadow';
 
@@ -27,10 +26,12 @@ function NavHorizontal() {
   return (
     <AppBar
       component="div"
-      sx={{
-        top: HEADER.H_DESKTOP_OFFSET,
-      }}
+      position="sticky"
+      // sx={{
+      //   top: 472,
+      // }}
     >
+      {/* <Box position="sticky"> */}
       <Toolbar
         sx={{
           ...bgBlur({
@@ -58,6 +59,7 @@ function NavHorizontal() {
       </Toolbar>
 
       <HeaderShadow />
+      {/* </Box> */}
     </AppBar>
   );
 }

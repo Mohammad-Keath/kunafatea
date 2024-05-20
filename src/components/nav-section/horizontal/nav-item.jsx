@@ -88,7 +88,7 @@ const NavItem = forwardRef(
       return (
         <Link
           href={path}
-          target="_blank"
+          // target="_blank"
           rel="noopener"
           color="inherit"
           underline="none"
@@ -162,6 +162,7 @@ const StyledNavItem = styled(ListItemButton, {
     },
     label: {
       textTransform: 'capitalize',
+      fontSize:16
     },
     caption: {
       marginLeft: theme.spacing(0.75),

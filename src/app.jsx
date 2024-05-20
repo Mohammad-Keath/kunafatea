@@ -19,14 +19,6 @@ import { MotionLazy } from 'src/components/animate/motion-lazy';
 import SnackbarProvider from 'src/components/snackbar/snackbar-provider';
 import { SettingsDrawer, SettingsProvider } from 'src/components/settings';
 
-import { CheckoutProvider } from 'src/sections/checkout/context';
-
-import { AuthProvider } from 'src/auth/context/jwt';
-// import { AuthProvider } from 'src/auth/context/auth0';
-// import { AuthProvider } from 'src/auth/context/amplify';
-// import { AuthProvider } from 'src/auth/context/firebase';
-// import { AuthProvider } from 'src/auth/context/supabase';
-
 // ----------------------------------------------------------------------
 
 export default function App() {
@@ -45,31 +37,27 @@ export default function App() {
   useScrollToTop();
 
   return (
-    <AuthProvider>
-      <LocalizationProvider>
-        <SettingsProvider
-          defaultSettings={{
-            themeMode: 'dark', // 'light' | 'dark'
-            themeDirection: 'ltr', //  'rtl' | 'ltr'
-            themeContrast: 'default', // 'default' | 'bold'
-            themeLayout: 'vertical', // 'vertical' | 'horizontal' | 'mini'
-            themeColorPresets: 'default', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
-            themeStretch: false,
-          }}
-        >
-          <ThemeProvider>
-            <MotionLazy>
-              <SnackbarProvider>
-                <CheckoutProvider>
-                  <SettingsDrawer />
-                  <ProgressBar />
-                  <Router />
-                </CheckoutProvider>
-              </SnackbarProvider>
-            </MotionLazy>
-          </ThemeProvider>
-        </SettingsProvider>
-      </LocalizationProvider>
-    </AuthProvider>
+    <LocalizationProvider>
+      <SettingsProvider
+        defaultSettings={{
+          themeMode: 'dark', // 'light' | 'dark'
+          themeDirection: 'ltr', //  'rtl' | 'ltr'
+          themeContrast: 'default', // 'default' | 'bold'
+          themeLayout: 'vertical', // 'vertical' | 'horizontal' | 'mini'
+          themeColorPresets: 'default', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
+          themeStretch: false,
+        }}
+      >
+        <ThemeProvider>
+          <MotionLazy>
+            <SnackbarProvider>
+              <SettingsDrawer />
+              <ProgressBar />
+              <Router />
+            </SnackbarProvider>
+          </MotionLazy>
+        </ThemeProvider>
+      </SettingsProvider>
+    </LocalizationProvider>
   );
 }

@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback } from 'react';
 import Drawer from '@mui/material/Drawer';
 import { Box, Stack, Button } from '@mui/material';
 
-import { usePathname } from 'src/routes/hooks';
+import { paths } from 'src/routes/paths';
+import { useRouter, usePathname } from 'src/routes/hooks';
 
 import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify';
@@ -16,6 +17,8 @@ import NavList from './nav-list';
 
 export default function NavMobile({ data }) {
   const pathname = usePathname();
+
+  const router = useRouter();
 
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -74,6 +77,7 @@ export default function NavMobile({ data }) {
           <Stack justifyContent="center" alignItems="center" gap={2} sx={{ my: 10, width: '100%' }}>
             <Button
               variant="outlined"
+              onClick={() => router.push(paths.reservation)}
               // color="primary"
               sx={{
                 height: 40,
@@ -83,12 +87,11 @@ export default function NavMobile({ data }) {
                 borderRadius: 0,
                 border: '2px solid ',
                 bgcolor: 'primary.main',
-
               }}
             >
-              RESERVATION
+              MAKE A RESERVATION
             </Button>
-            <Button
+            {/* <Button
               variant="outlined"
               // color="primary"
               sx={{
@@ -103,7 +106,7 @@ export default function NavMobile({ data }) {
               }}
             >
               CATERING
-            </Button>
+            </Button> */}
           </Stack>
         </Scrollbar>
       </Drawer>
