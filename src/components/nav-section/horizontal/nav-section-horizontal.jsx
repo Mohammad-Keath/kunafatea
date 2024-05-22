@@ -14,7 +14,7 @@ function NavSectionHorizontal({ data, slotProps, sx, ...other }) {
       id="nav-section-horizontal"
       direction="row"
       alignItems="center"
-      spacing={`${slotProps?.gap || 6}px`}
+      spacing={`${slotProps?.gap || 20}px`}
       sx={{
         mx: 'auto',
         ...sx,

@@ -32,7 +32,6 @@ const StyledRoot = styled('div')(({ theme }) => ({
 }));
 
 export default function HomeHero() {
-
   const heroRef = useRef(null);
 
   const { scrollY } = useScroll();
@@ -70,7 +69,6 @@ export default function HomeHero() {
         opacity: opacity > 0 ? opacity : 0,
       }}
     >
-
       <m.div variants={varFade().in}>
         <Typography variant="h2" sx={{ textAlign: 'center' }}>
           MENU
@@ -87,7 +85,7 @@ export default function HomeHero() {
           backgroundSize: 'cover',
         }}
       >
-        <Container component={MotionContainer} sx={{ height: 0.7 }}>
+        <Container component={MotionContainer} sx={{ height: { xs: 1, md: 0.7 } }}>
           <Grid container columnSpacing={{ md: 10 }} sx={{ height: 1 }}>
             <Grid xs={12} md={12}>
               {renderDescription}

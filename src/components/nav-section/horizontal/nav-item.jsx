@@ -87,7 +87,7 @@ const NavItem = forwardRef(
     if (externalLink)
       return (
         <Link
-          href={path}
+          // href={path}
           // target="_blank"
           rel="noopener"
           color="inherit"
@@ -104,8 +104,8 @@ const NavItem = forwardRef(
 
     return (
       <Link
-        component={RouterLink}
-        href={path}
+        // component={RouterLink}
+        // href={path}
         color="inherit"
         underline="none"
         sx={{

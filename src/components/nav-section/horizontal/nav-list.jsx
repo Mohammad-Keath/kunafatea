@@ -55,8 +55,14 @@ export default function NavList({ data, depth, slotProps }) {
         //
         depth={depth}
         hasChild={!!data.children}
-        externalLink={data.path.includes('http')}
+        // externalLink={data.path.includes('http')}
         currentRole={slotProps?.currentRole}
+        onClick={() => {
+          setOpenMenu(false);
+          document
+            .getElementById(data.sectionId)
+            ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }}
         //
         active={active}
         className={active ? 'active' : ''}

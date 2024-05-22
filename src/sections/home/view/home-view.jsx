@@ -10,6 +10,7 @@ import ScrollProgress from 'src/components/scroll-progress';
 import HomeHero from '../home-hero';
 import HomeMinimal from '../home-minimal';
 import HomePricing from '../home-pricing';
+import Introduction from '../introduction';
 
 // ----------------------------------------------------------------------
 
@@ -43,7 +44,15 @@ export default function HomeView() {
       <ScrollProgress scrollYProgress={scrollYProgress} />
 
       <HomeHero />
-
+      <Box
+        sx={{
+          overflow: 'hidden',
+          position: 'relative',
+          bgcolor: 'background.default',
+        }}
+      >
+        <Introduction />
+      </Box>
       <Box
         sx={{
           overflow: 'hidden',
@@ -52,17 +61,16 @@ export default function HomeView() {
           backgroundImage: `url(${BackgroundImg})`,
           backgroundSize: 'cover',
         }}
-        >
+      >
         <HomeMinimal />
-        </Box>
+      </Box>
       <Box
         sx={{
           overflow: 'hidden',
           position: 'relative',
           bgcolor: 'background.default',
         }}
-        >
-
+      >
         {/* <HomeHugePackElements /> */}
 
         {/* <Box sx={{ position: 'relative' }}>

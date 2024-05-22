@@ -18,7 +18,7 @@ export default function RHFTimePicker({ name, helperText, type, ...other }) {
           {...field}
           fullWidth
           // ampmInClock
-          orientation="landscape"
+          // orientation="landscape"
           minutesStep="5"
           format="hh:mm a"
           value={field.value}

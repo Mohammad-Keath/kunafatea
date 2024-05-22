@@ -86,7 +86,7 @@ export default function NavMobile({ data }) {
                 fontWeight: 700,
                 borderRadius: 0,
                 border: '2px solid ',
-                bgcolor: 'primary.main',
+                // bgcolor: 'primary.main',
               }}
             >
               MAKE A RESERVATION

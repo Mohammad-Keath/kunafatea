@@ -11,6 +11,7 @@ import Desserts from 'src/assets/images/dessert.jpeg';
 import Appetizer from 'src/assets/images/appetizers.jpeg';
 
 import { varFade, MotionViewport } from 'src/components/animate';
+import { useRouter } from 'src/routes/hooks';
 
 // ----------------------------------------------------------------------
 
@@ -18,22 +19,25 @@ const CARDS = [
   {
     img: Appetizer,
     title: 'Appetizers menu',
-
+    path: '/menu?select=appetizers',
     description: 'Consistent design makes it easy to brand your own.',
   },
   {
     img: Desserts,
     title: 'Desserts menu',
+    path: '/menu?select=desserts',
     description: 'Consistent design makes it easy to brand your own.',
   },
   {
     img: Dishes,
     title: 'Dishes menu',
+    path: '/menu?select=dishes',
     description: 'Consistent design makes it easy to brand your own.',
   },
   {
     img: Drinks,
     title: 'Drinks menu',
+    path: '/menu?select=drinks',
     description: 'Easy to customize and extend, saving you time and money.',
   },
 ];
@@ -41,6 +45,7 @@ const CARDS = [
 // ----------------------------------------------------------------------
 
 export default function HomeMinimal() {
+  const router = useRouter();
   return (
     <>
       {/* <Divider /> */}
@@ -100,6 +105,7 @@ export default function HomeMinimal() {
                     transition: 'all 0.5s ease-in-out',
                   },
                 }}
+                onClick={() => router.push(card.path)}
               >
                 {index % 2 === 1 && <Box sx={{ height: 210 }} />}
 

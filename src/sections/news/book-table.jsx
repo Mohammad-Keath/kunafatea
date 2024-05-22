@@ -33,10 +33,7 @@ const StyledRoot = styled('div')(({ theme }) => ({
   },
 }));
 
-// ----------------------------------------------------------------------
-
 export default function HomeHero() {
-
   const heroRef = useRef(null);
 
   const { scrollY } = useScroll();
@@ -75,19 +72,8 @@ export default function HomeHero() {
       }}
     >
       <m.div variants={varFade().in}>
-        <Typography
-          variant="h5"
-          sx={{
-            textAlign: 'center',
-          }}
-        >
-          Welcome to Kunafatea <hr />
-        </Typography>
-      </m.div>
-
-      <m.div variants={varFade().in}>
         <Typography variant="h2" sx={{ textAlign: 'center' }}>
-          Delicious Food & Wonderful Eating Experience
+          NEWS
         </Typography>
       </m.div>
     </Stack>
@@ -102,19 +88,15 @@ export default function HomeHero() {
           backgroundSize: 'cover',
         }}
       >
-          <Container component={MotionContainer} sx={{ height: 1 }}>
-            <Grid container columnSpacing={{ md: 10 }} sx={{ height: 1 }}>
-              <Grid xs={12} md={12}>
-                {renderDescription}
-              </Grid>
-
+        <Container component={MotionContainer} sx={{ height: { xs: 1, md: 0.7 } }}>
+          <Grid container columnSpacing={{ md: 10 }} sx={{ height: 1 }}>
+            <Grid xs={12} md={12}>
+              {renderDescription}
             </Grid>
-          </Container>
-
+          </Grid>
+        </Container>
       </StyledRoot>
-
-
-      <Box sx={{ height: { md: '100vh' } }} />
+      <Box sx={{ height: { md: '50vh' } }} />
     </>
   );
 }
