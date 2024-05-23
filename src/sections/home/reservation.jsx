@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import PropTypes from 'prop-types';
+import emailjs from '@emailjs/browser';
 import { useForm } from 'react-hook-form';
 
 import Box from '@mui/material/Box';
@@ -9,6 +10,8 @@ import LoadingButton from '@mui/lab/LoadingButton';
 
 import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
+
+import { fDate, fTime } from 'src/utils/format-time';
 
 import { useSnackbar } from 'src/components/snackbar';
 import RHFDatePicker from 'src/components/hook-form/rhf-date-picker';
@@ -70,9 +73,21 @@ export default function ReservationForm({ currentUser }) {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      await emailjs.send(
+        'service_fhhwg7b',
+        'template_havzqpf',
+        {
+          form_type: 'Reservation',
+          ...data,
+          day: fDate(data.day),
+          startTime: fTime(data.time),
+        },
+        {
+          publicKey: 'hFoPaUo5UPj1WAnYG',
+        }
+      );
       reset();
-      enqueueSnackbar(currentUser ? 'Update success!' : 'Create success!');
+      enqueueSnackbar('sent successfully!');
       router.push(paths.dashboard.user.list);
       console.info('DATA', data);
     } catch (error) {

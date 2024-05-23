@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import PropTypes from 'prop-types';
-// import { SMTPClient } from 'emailjs';
+import emailjs from '@emailjs/browser';
 import { useForm } from 'react-hook-form';
 
 import Box from '@mui/material/Box';
@@ -8,8 +8,13 @@ import Stack from '@mui/material/Stack';
 import { InputAdornment } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 
-import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
+
+// import { SendEmail } from 'src/utils/send-email';
+
+import { paths } from 'src/routes/paths';
+
+import { fDate, fTime } from 'src/utils/format-time';
 
 import { useSnackbar } from 'src/components/snackbar';
 import RHFDatePicker from 'src/components/hook-form/rhf-date-picker';
@@ -20,31 +25,8 @@ import FormProvider, { RHFTextField } from 'src/components/hook-form';
 
 export default function EventForm({ currentUser }) {
   const router = useRouter();
-  // const client = new SMTPClient({
-  //   user: 'user',
-  //   password: 'password',
-  //   host: 'smtp.your-email.com',
-  //   ssl: true,
-  // });
 
   const { enqueueSnackbar } = useSnackbar();
-
-  //   const NewUserSchema = Yup.object().shape({
-  //     name: Yup.string().required('Name is required'),
-  //     email: Yup.string().required('Email is required').email('Email must be a valid email address'),
-  //     phoneNumber: Yup.string().required('Phone number is required'),
-  //     address: Yup.string().required('Address is required'),
-  //     country: Yup.string().required('Country is required'),
-  //     company: Yup.string().required('Company is required'),
-  //     state: Yup.string().required('State is required'),
-  //     city: Yup.string().required('City is required'),
-  //     role: Yup.string().required('Role is required'),
-  //     zipCode: Yup.string().required('Zip code is required'),
-  //     avatarUrl: Yup.mixed().nullable().required('Avatar is required'),
-  //     // not required
-  //     status: Yup.string(),
-  //     isVerified: Yup.boolean(),
-  //   });
 
   const defaultValues = useMemo(
     () => ({
@@ -68,44 +50,36 @@ export default function EventForm({ currentUser }) {
 
   const {
     reset,
-    // watch,
-    // control,
-    // setValue,
     handleSubmit,
     formState: { isSubmitting },
   } = methods;
 
-  // const values = watch();
-
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      await emailjs.send(
+        'service_fhhwg7b',
+        'template_bpns2qj',
+        {
+          form_type: 'Catering',
+          ...data,
+          day: fDate(data.day),
+          startTime: fTime(data.startTime),
+          endTime: fTime(data.endTime),
+        },
+        {
+          publicKey: 'hFoPaUo5UPj1WAnYG',
+        }
+      );
       reset();
-      enqueueSnackbar(currentUser ? 'Update success!' : 'Create success!');
+      enqueueSnackbar('sent successfully!');
       router.push(paths.dashboard.user.list);
-      console.info('DATA', data);
     } catch (error) {
       console.error(error);
     }
   });
 
-  // const handleDrop = useCallback(
-  //   (acceptedFiles) => {
-  //     const file = acceptedFiles[0];
-
-  //     const newFile = Object.assign(file, {
-  //       preview: URL.createObjectURL(file),
-  //     });
-
-  //     if (file) {
-  //       setValue('avatarUrl', newFile, { shouldValidate: true });
-  //     }
-  //   },
-  //   [setValue]
-  // );
-
   return (
-    <FormProvider methods={methods} onSubmit={onSubmit}>
+    <FormProvider id="myForm" methods={methods} onSubmit={onSubmit}>
       <Stack sx={{ pt: 4, mx: { md: 0, xs: 4 } }}>
         <Box
           rowGap={7}

@@ -14,17 +14,26 @@ export default function Introduction() {
     // >
 
     <Stack>
-      <Typography variant="body1" px={20} py={10} textAlign="center">
-        Over the past few years, our catering and delivery enterprises have experienced significant
-        growth. In order to uphold our commitment to providing exceptional products and experiences
-        that our loyal customer base has come to expect, we have developed our own proprietary
-        delivery app. This app allows customers to connect directly with our restaurants and staff,
-        streamlining the ordering and delivery process. Our app offers a range of features designed
-        to enhance the customer experience, including real-time order tracking, personalized
-        recommendations, and a variety of payment options. Additionally, we have implemented robust
-        security measures to protect customer data and ensure a safe and secure ordering experience.
-        We are confident that our delivery app will help us continue to deliver the high-quality
-        products and experiences that our customers have come to expect.
+      <Typography variant="h3" pt={7} textAlign="center" color="secondary.main">
+        WELCOME TO KUNAFA TEA
+      </Typography>
+      <Typography variant="h3" textAlign="center" color="secondary.main">
+        AHLAN WA SAHLAN
+      </Typography>
+      <Typography variant="h5" px={20} pt={3} textAlign="center">
+        We want to bring you a taste of Damascus, Syria, where we are from.
+      </Typography>
+      <Typography variant="h5" px={50} textAlign="center">
+        Everything here tells a story, striped walls and straw chairs can be found in Damascene
+        courtyard houses. Climbing plants and fragrant, white jasmine flowers cover the walls of the
+        old streets of Damascus.
+      </Typography>
+      <Typography variant="h5" px={20} textAlign="center">
+        We started preparing kunafa from our humblr home, and your love and support has brought us
+        here.
+      </Typography>
+      <Typography variant="h5" px={20} pb={10} textAlign="center">
+        We wish you a wonderful experience.
       </Typography>
     </Stack>
     // </Container>
