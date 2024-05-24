@@ -5,9 +5,9 @@ import Box from '@mui/material/Box';
 import ScrollProgress from 'src/components/scroll-progress';
 
 import HomeHero from '../book-table';
+import Introduction from '../introduction';
 import CateringHistory from '../catering-history';
 import CateringHistory2 from '../catering-history copy';
-import Introduction from '../introduction';
 
 // ----------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-import { Box, Card, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 
 import SeaBass from 'src/assets/images/menu/grills/grilled sea bass.jpg';
 import HalabMix from 'src/assets/images/menu/grills/halab mix grill.jpg';

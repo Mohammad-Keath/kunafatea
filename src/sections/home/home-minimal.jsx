@@ -5,13 +5,14 @@ import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
+import { useRouter } from 'src/routes/hooks';
+
 import Dishes from 'src/assets/images/dishes.jpeg';
 import Drinks from 'src/assets/images/drinks.jpeg';
 import Desserts from 'src/assets/images/dessert.jpeg';
 import Appetizer from 'src/assets/images/appetizers.jpeg';
 
 import { varFade, MotionViewport } from 'src/components/animate';
-import { useRouter } from 'src/routes/hooks';
 
 // ----------------------------------------------------------------------
 

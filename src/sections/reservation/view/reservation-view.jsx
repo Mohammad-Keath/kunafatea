@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 
 import { useState } from 'react';
 
-import { Stack, AppBar, Divider, Typography, useTheme } from '@mui/material';
+import { Stack, AppBar, Divider, useTheme, Typography } from '@mui/material';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
